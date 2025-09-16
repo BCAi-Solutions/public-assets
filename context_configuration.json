@@ -1,0 +1,4 @@
+{
+  "coreContextv1.8": "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.8.jsonld",
+  "dataModel.Device": "https://raw.githubusercontent.com/smart-data-models/dataModel.Device/master/context.jsonld"
+}
