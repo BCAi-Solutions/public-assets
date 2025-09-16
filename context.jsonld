@@ -1,1 +1,540 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "@protected": true,
+    "ngsi-ld": "https://uri.etsi.org/ngsi-ld/",
+    "geojson": "https://purl.org/geojson/vocab#",
+    "id": "@id",
+    "type": "@type",
+    "Attribute": "ngsi-ld:Attribute",
+    "AttributeList": "ngsi-ld:AttributeList",
+    "ContextSourceIdentity": "ngsi-ld:ContextSourceIdentity",
+    "ContextSourceNotification": "ngsi-ld:ContextSourceNotification",
+    "ContextSourceRegistration": "ngsi-ld:ContextSourceRegistration",
+    "Date": "ngsi-ld:Date",
+    "DateTime": "ngsi-ld:DateTime",
+    "EntityType": "ngsi-ld:EntityType",
+    "EntityTypeInfo": "ngsi-ld:EntityTypeInfo",
+    "EntityTypeList": "ngsi-ld:EntityTypeList",
+    "Feature": "geojson:Feature",
+    "FeatureCollection": "geojson:FeatureCollection",
+    "GeoProperty": "ngsi-ld:GeoProperty",
+    "GeometryCollection": "geojson:GeometryCollection",
+    "JsonProperty": "ngsi-ld:JsonProperty",
+    "LanguageProperty": "ngsi-ld:LanguageProperty",
+    "LineString": "geojson:LineString",
+    "ListProperty": "ngsi-ld:ListProperty",
+    "ListRelationship": "ngsi-ld:ListRelationship",
+    "MultiLineString": "geojson:MultiLineString",
+    "MultiPoint": "geojson:MultiPoint",
+    "MultiPolygon": "geojson:MultiPolygon",
+    "Notification": "ngsi-ld:Notification",
+    "Point": "geojson:Point",
+    "Polygon": "geojson:Polygon",
+    "Property": "ngsi-ld:Property",
+    "Relationship": "ngsi-ld:Relationship",
+    "Subscription": "ngsi-ld:Subscription",
+    "TemporalProperty": "ngsi-ld:TemporalProperty",
+    "Time": "ngsi-ld:Time",
+    "VocabProperty": "ngsi-ld:VocabProperty",
+    "accept": "ngsi-ld:accept",
+    "attributeCount": "attributeCount",
+    "attributeDetails": "attributeDetails",
+    "attributeList": {
+      "@id": "ngsi-ld:attributeList",
+      "@type": "@vocab"
+    },
+    "attributeName": {
+	  "@id": "ngsi-ld:attributeName",
+      "@type": "@vocab"
+	},
+    "attributeNames": {
+      "@id": "ngsi-ld:attributeNames",
+      "@type": "@vocab"
+    },
+    "attributeTypes": {
+      "@id": "ngsi-ld:attributeTypes",
+      "@type": "@vocab"
+    },
+    "attributes": {
+      "@id": "ngsi-ld:attributes",
+      "@type": "@vocab"
+    },
+    "attrs": "ngsi-ld:attrs",
+    "avg": {
+      "@id": "ngsi-ld:avg",
+      "@container": "@list"
+    },
+    "bbox": {
+      "@container": "@list",
+      "@id": "geojson:bbox"
+    },
+    "cacheDuration": "ngsi-ld:cacheDuration",
+    "containedBy": "ngsi-ld:isContainedBy",
+    "contextSourceAlias": "ngsi-ld:contextSourceAlias",
+    "contextSourceExtras": {
+      "@id": "ngsi-ld:contextSourceExtras",
+      "@type": "@json"
+    },
+    "contextSourceInfo": "ngsi-ld:contextSourceInfo",
+    "contextSourceTimeAt": {
+      "@id": "ngsi-ld:contextSourceTimeAt",
+      "@type": "DateTime"
+    }, 
+    "contextSourceUptime": "ngsi-ld:contextSourceUptime",
+    "cooldown": "ngsi-ld:cooldown",
+    "coordinates": {
+      "@container": "@list",
+      "@id": "geojson:coordinates"
+    },
+    "createdAt": {
+      "@id": "ngsi-ld:createdAt",
+      "@type": "DateTime"
+    },
+    "csf": "ngsi-ld:csf",
+    "data": "ngsi-ld:data",
+	"dataset": {
+      "@id": "ngsi-ld:hasDataset",
+      "@container": "@index"
+	},
+    "datasetId": {
+      "@id": "ngsi-ld:datasetId",
+      "@type": "@id"
+    },
+    "deletedAt": {
+      "@id": "ngsi-ld:deletedAt",
+      "@type": "DateTime"
+    }, 
+    "description": "http://purl.org/dc/terms/description",
+    "detail": "ngsi-ld:detail",
+    "distinctCount": {
+      "@id": "ngsi-ld:distinctCount",
+      "@container": "@list"
+    },
+    "endAt": {
+      "@id": "ngsi-ld:endAt",
+      "@type": "DateTime"
+    },
+    "endTimeAt": {
+      "@id": "ngsi-ld:endTimeAt",
+      "@type": "DateTime"
+    },
+    "endpoint": "ngsi-ld:endpoint",
+    "entities": "ngsi-ld:entities",
+    "entity": "ngsi-ld:entity",
+    "entityCount": "ngsi-ld:entityCount",
+    "entityId": {
+      "@id": "ngsi-ld:entityId",
+      "@type": "@id"
+    },
+    "entityList": {
+      "@id": "ngsi-ld:entityList",
+      "@container": "@list"
+    },
+    "entityMap": "ngsi-ld:hasEntityMap",
+    "error": "ngsi-ld:error",
+    "errors": "ngsi-ld:errors",
+    "expandValues": "ngsi-ld:expandValues",
+    "expiresAt": {
+      "@id": "ngsi-ld:expiresAt",
+      "@type": "DateTime"
+    },
+    "features": {
+      "@container": "@set",
+      "@id": "geojson:features"
+    },
+    "format": "ngsi-ld:format",
+    "geoQ": "ngsi-ld:geoQ",
+    "geometry": "geojson:geometry",
+    "geometryProperty": "geojson:geometryProperty",
+    "geoproperty": "ngsi-ld:geoproperty",
+    "georel": "ngsi-ld:georel",
+    "idPattern": "ngsi-ld:idPattern",
+    "information": "ngsi-ld:information",
+    "instanceId": {
+      "@id": "ngsi-ld:instanceId",
+      "@type": "@id"
+    },
+    "isActive": "ngsi-ld:isActive",
+    "join": "ngsi-ld:join",
+    "joinLevel": "ngsi-ld:hasJoinLevel",
+    "json": {
+	  "@id": "ngsi-ld:hasJSON", 
+	  "@type": "@json"
+    },
+    "jsonKeys": "ngsi-ld:jsonKeys",
+    "jsons": {
+      "@id": "ngsi-ld:jsons",
+      "@container": "@list"
+    },
+    "key": "ngsi-ld:hasKey",
+    "lang": "ngsi-ld:lang",
+    "languageMap": {
+      "@id": "ngsi-ld:hasLanguageMap",
+      "@container": "@language"
+    },
+    "languageMaps": {
+      "@id": "ngsi-ld:hasLanguageMaps",
+      "@container": "@list"
+    },
+    "lastFailure": {
+      "@id": "ngsi-ld:lastFailure",
+      "@type": "DateTime"
+    },
+    "lastNotification": {
+      "@id": "ngsi-ld:lastNotification",
+      "@type": "DateTime"
+    },
+    "lastSuccess": {
+      "@id": "ngsi-ld:lastSuccess",
+      "@type": "DateTime"
+    },
+    "linkedMaps": "ngsi-ld:linkedMaps",
+    "localOnly": "ngsi-ld:localOnly",
+    "location": "ngsi-ld:location",
+    "management": "ngsi-ld:management",
+    "managementInterval": "ngsi-ld:managementInterval",
+    "max": {
+      "@id": "ngsi-ld:max",
+      "@container": "@list"
+    },
+    "min": {
+      "@id": "ngsi-ld:min",
+      "@container": "@list"
+    },
+    "mode": "ngsi-ld:mode",
+    "modifiedAt": {
+      "@id": "ngsi-ld:modifiedAt",
+      "@type": "DateTime"
+    },
+    "notification": "ngsi-ld:notification",
+    "notificationTrigger": "ngsi-ld:notificationTrigger",
+    "notifiedAt": {
+      "@id": "ngsi-ld:notifiedAt",
+      "@type": "DateTime"
+    },
+    "notifierInfo": "ngsi-ld:notifierInfo",
+    "notUpdated": "ngsi-ld:notUpdated",
+    "object": {
+      "@id": "ngsi-ld:hasObject",
+      "@type": "@id"
+    },
+    "objectList": {
+      "@id": "ngsi-ld:hasObjectList",
+      "@container": "@list"
+    },
+    "objects": {
+      "@id": "ngsi-ld:hasObjects",
+      "@container": "@list"
+    },
+    "objectsLists": {
+      "@id": "ngsi-ld:hasObjectsLists",
+      "@container": "@list"
+    },
+    "objectType": {
+      "@id": "ngsi-ld:hasObjectType",
+      "@type": "@vocab"
+    },
+    "observationInterval": "ngsi-ld:observationInterval",
+    "observationSpace": "ngsi-ld:observationSpace",
+    "observedAt": {
+      "@id": "ngsi-ld:observedAt",
+      "@type": "DateTime"
+    },
+    "omit": "ngsi-ld:omit",
+    "operationSpace": "ngsi-ld:operationSpace",    
+	"operations": "ngsi-ld:operations",
+    "pick": "ngsi-ld:pick",
+    "previousJson": {
+      "@id": "ngsi-ld:hasPreviousJson",
+      "@type": "@json"
+    },
+    "previousLanguageMap": {
+      "@id": "ngsi-ld:hasPreviousLanguageMap",
+      "@container": "@language"
+    },
+    "previousObject": {
+      "@id": "ngsi-ld:hasPreviousObject",
+      "@type": "@id"
+    },
+    "previousObjectList": {
+      "@id": "ngsi-ld:hasPreviousObjectList",
+      "@container": "@list"
+    },
+    "previousValue": "ngsi-ld:hasPreviousValue",
+    "previousValueList": {
+      "@id": "ngsi-ld:hasPreviousValueList",
+      "@container": "@list"
+    },
+    "previousVocab": {
+      "@id": "ngsi-ld:hasPreviousVocab",
+      "@type": "@vocab"
+    },
+    "properties": "geojson:properties",
+    "propertyNames": {
+      "@id": "ngsi-ld:propertyNames",
+      "@type": "@vocab"
+    },
+    "q": "ngsi-ld:q",
+    "reason": "ngsi-ld:reason",
+    "receiverInfo": "ngsi-ld:receiverInfo",
+    "refreshRate": "ngsi-ld:refreshRate",    
+	"registrationId": "ngsi-ld:registrationId",
+    "registrationName": "ngsi-ld:registrationName",
+    "relationshipNames": {
+      "@id": "ngsi-ld:relationshipNames",
+      "@type": "@vocab"
+    },
+    "scope": "ngsi-ld:scope",
+    "scopeQ": "ngsi-ld:scopeQ",
+    "showChanges": "ngsi-ld:showChanges",
+    "startAt": {
+      "@id": "ngsi-ld:startAt",
+      "@type": "DateTime"
+    },
+    "status": "ngsi-ld:status",
+    "stddev": {
+      "@id": "ngsi-ld:stddev",
+      "@container": "@list"
+    },
+    "subscriptionId": {
+      "@id": "ngsi-ld:subscriptionId",
+      "@type": "@id"
+    },
+    "subscriptionName": "ngsi-ld:subscriptionName",
+    "success": {
+      "@id": "ngsi-ld:success",
+      "@type": "@id"
+    },
+    "sum": {
+      "@id": "ngsi-ld:sum",
+      "@container": "@list"
+    },
+    "sumsq": {
+      "@id": "ngsi-ld:sumsq",
+      "@container": "@list"
+    },
+    "sysAttrs": "ngsi-ld:sysAttrs",
+    "temporalQ": "ngsi-ld:temporalQ",
+    "tenant": {
+      "@id": "ngsi-ld:tenant",
+      "@type": "@id"
+    },
+    "throttling": "ngsi-ld:throttling",
+    "timeAt": {
+      "@id": "ngsi-ld:timeAt",
+      "@type": "DateTime"
+    },
+    "timeInterval": "ngsi-ld:timeInterval",
+    "timeout": "ngsi-ld:timeout",
+    "timeproperty": "ngsi-ld:timeproperty",
+    "timerel": "ngsi-ld:timerel",
+    "timesFailed": "ngsi-ld:timesFailed",
+    "timesSent": "ngsi-ld:timesSent",
+	"title": "http://purl.org/dc/terms/title",
+    "totalCount": {
+      "@id": "ngsi-ld:totalCount",
+      "@container": "@list"
+    },
+    "triggerReason": "ngsi-ld:triggerReason",
+    "typeList": {
+      "@id": "ngsi-ld:typeList",
+      "@type": "@vocab"
+    },
+    "typeName": {
+      "@id": "ngsi-ld:typeName",
+      "@type": "@vocab"
+    },
+    "typeNames": {
+      "@id": "ngsi-ld:typeNames",
+      "@type": "@vocab"
+    },
+    "unchanged": "ngsi-ld:unchanged",
+    "unitCode": "ngsi-ld:unitCode",
+    "updated": "ngsi-ld:updated",
+    "uri": "ngsi-ld:uri",
+    "value": "ngsi-ld:hasValue",
+    "valueList": {
+      "@id": "ngsi-ld:hasValueList",
+      "@container": "@list"
+    },
+    "valueLists": {
+      "@id": "ngsi-ld:hasValueLists",
+      "@container": "@list"
+    },
+    "values": {
+      "@id": "ngsi-ld:hasValues",
+      "@container": "@list"
+    },
+    "vocab": {
+      "@id": "ngsi-ld:hasVocab",
+      "@type": "@vocab"
+    },
+    "vocabs": {
+      "@id": "ngsi-ld:hasVocabs",
+      "@container": "@list"
+    },
+    "watchedAttributes": {
+      "@id": "ngsi-ld:watchedAttributes",
+      "@type": "@vocab"
+    },
+    "@vocab": "https://uri.etsi.org/ngsi-ld/default-context/",
+    "Camera": "https://smartdatamodels.org/dataModel.Device/Camera",
+    "Device": "https://smartdatamodels.org/dataModel.Device/Device",
+    "DeviceMeasurement": "https://smartdatamodels.org/dataModel.Device/DeviceMeasurement",
+    "DeviceModel": "https://smartdatamodels.org/dataModel.Device/DeviceModel",
+    "DeviceOperation": "https://smartdatamodels.org/dataModel.Device/DeviceOperation",
+    "Modbus": "https://smartdatamodels.org/dataModel.Device/Modbus",
+    "PolarH10": "https://smartdatamodels.org/dataModel.Device/PolarH10",
+    "PrivacyObject": "https://smartdatamodels.org/dataModel.Device/PrivacyObject",
+    "SenseHat": "https://smartdatamodels.org/dataModel.Device/SenseHat",
+    "SmartMeteringObservation": "https://smartdatamodels.org/dataModel.Device/SmartMeteringObservation",
+    "UWBAnchor": "https://smartdatamodels.org/dataModel.Device/UWBAnchor",
+    "acc": "https://smartdatamodels.org/dataModel.Device/acc",
+    "accelerometer": "https://smartdatamodels.org/dataModel.Device/accelerometer",
+    "address": "https://smartdatamodels.org/address",
+    "addressCountry": "https://smartdatamodels.org/addressCountry",
+    "addressLocality": "https://smartdatamodels.org/addressLocality",
+    "addressRegion": "https://smartdatamodels.org/addressRegion",
+    "addressedAt": "https://smartdatamodels.org/dataModel.Device/addressedAt",
+    "alternateName": "https://smartdatamodels.org/alternateName",
+    "anchorData": "https://smartdatamodels.org/dataModel.Device/anchorData",
+    "anchorId": "https://smartdatamodels.org/dataModel.Device/anchorId",
+    "annotatedMap": "https://smartdatamodels.org/dataModel.Device/annotatedMap",
+    "annotations": "https://smartdatamodels.org/annotations",
+    "areaServed": "https://smartdatamodels.org/areaServed",
+    "batteryLevel": "https://smartdatamodels.org/dataModel.Device/batteryLevel",
+    "blinkIndex": "https://smartdatamodels.org/dataModel.Device/blinkIndex",
+    "brandName": "https://smartdatamodels.org/dataModel.Device/brandName",
+    "cameraName": "https://smartdatamodels.org/dataModel.Device/cameraName",
+    "cameraNum": "https://smartdatamodels.org/dataModel.Device/cameraNum",
+    "cameraOrientation": "https://smartdatamodels.org/dataModel.Device/cameraOrientation",
+    "cameraType": "https://smartdatamodels.org/dataModel.Device/cameraType",
+    "cameraUsage": "https://smartdatamodels.org/dataModel.Device/cameraUsage",
+    "category": "https://smartdatamodels.org/dataModel.Device/category",
+    "clientId": "https://smartdatamodels.org/dataModel.Device/clientId",
+    "color": "https://smartdatamodels.org/color",
+    "comments": "https://smartdatamodels.org/dataModel.Device/comments",
+    "configuration": "https://smartdatamodels.org/dataModel.Device/configuration",
+    "controlledAsset": "https://smartdatamodels.org/dataModel.Device/controlledAsset",
+    "controlledProperty": "https://smartdatamodels.org/dataModel.Device/controlledProperty",
+    "crossborderTransfer": "https://smartdatamodels.org/dataModel.Device/crossborderTransfer",
+    "dataProvider": "https://smartdatamodels.org/dataProvider",
+    "dateCreated": "https://smartdatamodels.org/dateCreated",
+    "dateFirstUsed": "https://smartdatamodels.org/dataModel.Device/dateFirstUsed",
+    "dateInstalled": "https://smartdatamodels.org/dataModel.Device/dateInstalled",
+    "dateLastCalibration": "https://smartdatamodels.org/dataModel.Device/dateLastCalibration",
+    "dateLastValueReported": "https://smartdatamodels.org/dataModel.Device/dateLastValueReported",
+    "dateManufactured": "https://smartdatamodels.org/dataModel.Device/dateManufactured",
+    "dateModified": "https://smartdatamodels.org/dateModified",
+    "dateObserved": "https://smartdatamodels.org/dateObserved",
+    "depth": "https://smartdatamodels.org/dataModel.Device/depth",
+    "device": "https://smartdatamodels.org/dataModel.Device/device",
+    "deviceCategory": "https://smartdatamodels.org/dataModel.Device/deviceCategory",
+    "deviceClass": "https://smartdatamodels.org/dataModel.Device/deviceClass",
+    "deviceId": "https://smartdatamodels.org/dataModel.Device/deviceId",
+    "deviceState": "https://smartdatamodels.org/dataModel.Device/deviceState",
+    "deviceType": "https://smartdatamodels.org/dataModel.Device/deviceType",
+    "direction": "https://smartdatamodels.org/dataModel.Device/direction",
+    "distance": "https://smartdatamodels.org/dataModel.Device/distance",
+    "district": "https://smartdatamodels.org/district",
+    "documentation": "https://smartdatamodels.org/dataModel.Device/documentation",
+    "dstAware": "https://smartdatamodels.org/dataModel.Device/dstAware",
+    "ecg": "https://smartdatamodels.org/dataModel.Device/ecg",
+    "endDateTime": "https://smartdatamodels.org/dataModel.Device/endDateTime",
+    "endedAt": "https://smartdatamodels.org/dataModel.Device/endedAt",
+    "energyLimitationClass": "https://smartdatamodels.org/dataModel.Device/energyLimitationClass",
+    "entityVersion": "https://smartdatamodels.org/dataModel.Device/entityVersion",
+    "firmwareVersion": "https://smartdatamodels.org/dataModel.Device/firmwareVersion",
+    "floor": "https://smartdatamodels.org/dataModel.Device/floor",
+    "function": "https://smartdatamodels.org/dataModel.Device/function",
+    "hardwareVersion": "https://smartdatamodels.org/dataModel.Device/hardwareVersion",
+    "hr": "https://smartdatamodels.org/dataModel.Device/hr",
+    "hrv": "https://smartdatamodels.org/dataModel.Device/hrv",
+    "humidity": "https://smartdatamodels.org/dataModel.Device/humidity",
+    "image": "https://smartdatamodels.org/image",
+    "imageSnapshot": "https://smartdatamodels.org/dataModel.Device/imageSnapshot",
+    "ipAddress": "https://smartdatamodels.org/dataModel.Device/ipAddress",
+    "isIndoor": "https://smartdatamodels.org/dataModel.Device/isIndoor",
+    "isPersonalData": "https://smartdatamodels.org/dataModel.Device/isPersonalData",
+    "latency": "https://smartdatamodels.org/dataModel.Device/latency",
+    "legitimateInterest": "https://smartdatamodels.org/dataModel.Device/legitimateInterest",
+    "macAddress": "https://smartdatamodels.org/dataModel.Device/macAddress",
+    "manufacturerName": "https://smartdatamodels.org/dataModel.Device/manufacturerName",
+    "mcc": "https://smartdatamodels.org/dataModel.Device/mcc",
+    "measurementType": "https://smartdatamodels.org/dataModel.Device/measurementType",
+    "mediaURL": "https://smartdatamodels.org/dataModel.Device/mediaURL",
+    "memoryAddress": "https://smartdatamodels.org/dataModel.Device/memoryAddress",
+    "meterType": "https://smartdatamodels.org/dataModel.Device/meterType",
+    "metrics": "https://smartdatamodels.org/dataModel.Device/metrics",
+    "mnc": "https://smartdatamodels.org/dataModel.Device/mnc",
+    "modelName": "https://smartdatamodels.org/dataModel.Device/modelName",
+    "moving": "https://smartdatamodels.org/dataModel.Device/moving",
+    "name": "https://smartdatamodels.org/name",
+    "numValue": "https://smartdatamodels.org/dataModel.Device/numValue",
+    "offPeakConsumption": "https://smartdatamodels.org/dataModel.Device/offPeakConsumption",
+    "on": "https://smartdatamodels.org/dataModel.Device/on",
+    "operationType": "https://smartdatamodels.org/dataModel.Device/operationType",
+    "operator": "https://smartdatamodels.org/dataModel.Device/operator",
+    "osVersion": "https://smartdatamodels.org/dataModel.Device/osVersion",
+    "outlier": "https://smartdatamodels.org/dataModel.Device/outlier",
+    "owner": "https://smartdatamodels.org/owner",
+    "parameter": "https://smartdatamodels.org/dataModel.Device/parameter",
+    "peakConsumption": "https://smartdatamodels.org/dataModel.Device/peakConsumption",
+    "plannedEndAt": "https://smartdatamodels.org/dataModel.Device/plannedEndAt",
+    "plannedStartAt": "https://smartdatamodels.org/dataModel.Device/plannedStartAt",
+    "postOfficeBoxNumber": "https://smartdatamodels.org/postOfficeBoxNumber",
+    "postalCode": "https://smartdatamodels.org/postalCode",
+    "powerFactor": "https://smartdatamodels.org/dataModel.Device/powerFactor",
+    "pressure": "https://smartdatamodels.org/dataModel.Device/pressure",
+    "primaryTable": "https://smartdatamodels.org/dataModel.Device/primaryTable",
+    "protocolId": "https://smartdatamodels.org/dataModel.Device/protocolId",
+    "provider": "https://smartdatamodels.org/dataModel.Device/provider",
+    "purpose": "https://smartdatamodels.org/dataModel.Device/purpose",
+    "raspSn": "https://smartdatamodels.org/dataModel.Device/raspSn",
+    "rates": "https://smartdatamodels.org/dataModel.Device/rates",
+    "recipientList": "https://smartdatamodels.org/dataModel.Device/recipientList",
+    "refDevice": "https://smartdatamodels.org/dataModel.Device/refDevice",
+    "refDeviceModel": "https://smartdatamodels.org/dataModel.Device/refDeviceModel",
+    "relativePosition": "https://smartdatamodels.org/dataModel.Device/relativePosition",
+    "reportedAt": "https://smartdatamodels.org/dataModel.Device/reportedAt",
+    "result": "https://smartdatamodels.org/dataModel.Device/result",
+    "retentionPeriod": "https://smartdatamodels.org/dataModel.Device/retentionPeriod",
+    "rr": "https://smartdatamodels.org/dataModel.Device/rr",
+    "rss": "https://smartdatamodels.org/dataModel.Device/rss",
+    "rssi": "https://smartdatamodels.org/dataModel.Device/rssi",
+    "sampleRate": "https://smartdatamodels.org/dataModel.Device/sampleRate",
+    "seeAlso": "https://smartdatamodels.org/seeAlso",
+    "sensorTimeStamp": "https://smartdatamodels.org/dataModel.Device/sensorTimeStamp",
+    "serialNumber": "https://smartdatamodels.org/dataModel.Device/serialNumber",
+    "sessionId": "https://smartdatamodels.org/dataModel.Device/sessionId",
+    "softwareVersion": "https://smartdatamodels.org/dataModel.Device/softwareVersion",
+    "source": "https://smartdatamodels.org/source",
+    "startDateTime": "https://smartdatamodels.org/dataModel.Device/startDateTime",
+    "startedAt": "https://smartdatamodels.org/dataModel.Device/startedAt",
+    "streamName": "https://smartdatamodels.org/dataModel.Device/streamName",
+    "streamURL": "https://smartdatamodels.org/dataModel.Device/streamURL",
+    "streetAddress": "https://smartdatamodels.org/streetAddress",
+    "streetNr": "https://smartdatamodels.org/streetNr",
+    "supportedProtocol": "https://smartdatamodels.org/dataModel.Device/supportedProtocol",
+    "supportedUnits": "https://smartdatamodels.org/dataModel.Device/supportedUnits",
+    "tagData": "https://smartdatamodels.org/dataModel.Device/tagData",
+    "tagId": "https://smartdatamodels.org/dataModel.Device/tagId",
+    "temperature": "https://smartdatamodels.org/dataModel.Device/temperature",
+    "textValue": "https://smartdatamodels.org/dataModel.Device/textValue",
+    "timeStamp": "https://smartdatamodels.org/dataModel.Device/timeStamp",
+    "timestamp": "https://smartdatamodels.org/dataModel.Device/timestamp",
+    "totalConsumption": "https://smartdatamodels.org/dataModel.Device/totalConsumption",
+    "transactionId": "https://smartdatamodels.org/dataModel.Device/transactionId",
+    "unit": "https://smartdatamodels.org/dataModel.Device/unit",
+    "unitId": "https://smartdatamodels.org/dataModel.Device/unitId",
+    "update": "https://smartdatamodels.org/dataModel.Device/update",
+    "user": "https://smartdatamodels.org/dataModel.Device/user",
+    "version": "https://smartdatamodels.org/dataModel.Device/version",
+    "x": "https://smartdatamodels.org/dataModel.Device/x",
+    "y": "https://smartdatamodels.org/dataModel.Device/y",
+    "z": "https://smartdatamodels.org/dataModel.Device/z",
+    "zones": "https://smartdatamodels.org/dataModel.Device/zones"
+  }
+}
 
